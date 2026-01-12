@@ -42,6 +42,7 @@ import {GenericXml} from '../updaters/generic-xml';
 import {PomXml} from '../updaters/java/pom-xml';
 import {GenericYaml} from '../updaters/generic-yaml';
 import {GenericToml} from '../updaters/generic-toml';
+import {GenericText} from '../updaters/generic-text';
 
 const DEFAULT_CHANGELOG_PATH = 'CHANGELOG.md';
 
@@ -460,6 +461,13 @@ export abstract class BaseStrategy implements Strategy {
                 path: this.addPath(path),
                 createIfMissing: false,
                 updater: new PomXml(version),
+              });
+              break;
+            case 'text':
+              extraFileUpdates.push({
+                path: this.addPath(path),
+                createIfMissing: false,
+                updater: new GenericText(version),
               });
               break;
             default:

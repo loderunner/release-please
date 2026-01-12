@@ -223,6 +223,25 @@
                   }
                 },
                 "required": ["type", "path"]
+              },
+              {
+                "description": "A plain text file that will be replaced entirely with the version.",
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "description": "The file format type.",
+                    "enum": ["text"]
+                  },
+                  "path": {
+                    "description": "The path to the file.",
+                    "type": "string"
+                  },
+                  "glob": {
+                    "description": "Whether to treat the path as a glob. Defaults to `false`.",
+                    "type": "boolean"
+                  }
+                },
+                "required": ["type", "path"]
               }
             ]
           }

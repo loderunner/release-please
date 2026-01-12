@@ -82,6 +82,11 @@ type ExtraTomlFile = {
   jsonpath: string;
   glob?: boolean;
 };
+type ExtraTextFile = {
+  type: 'text';
+  path: string;
+  glob?: boolean;
+};
 export type ExtraFile =
   | string
   | ExtraGenericFile
@@ -89,7 +94,8 @@ export type ExtraFile =
   | ExtraYamlFile
   | ExtraXmlFile
   | ExtraPomFile
-  | ExtraTomlFile;
+  | ExtraTomlFile
+  | ExtraTextFile;
 /**
  * These are configurations provided to each strategy per-path.
  */
